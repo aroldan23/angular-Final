@@ -1,0 +1,51 @@
+<section class="site-hero overlay page-inside" style="background-image: url(assets/img/ULACIT.jpg)">
+    <div class="container">
+      <div class="row site-hero-inner justify-content-center align-items-center">
+        <div class="col-md-10 text-center">
+          <h1 class="heading" data-aos="fade-up">Reserva de parqueo</h1>
+          <!-- <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">Enjoy your stay.</p> -->
+        </div>
+      </div>
+      <!-- <a href="#" class="scroll-down">Scroll Down</a> -->
+    </div>
+  </section>
+  <!-- END section -->
+    <section class="vh-150 gradient-custom">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="col-md-20" data-aos="fade-up" data-aos-delay="100" style="align-items: center;">
+            
+              <form action="#" method="post" class="bg-white p-md-5 p-4 mb-5 border" style="align-items: center;">
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <label class="text-black font-weight-bold" for="cedula">Cédula</label>
+                    <input type="text" id="cedula" class="form-control" name="cedula" [(ngModel)]="usuario.cedula">
+                  </div>
+                </div>              
+  
+                <div class="row mb-4">
+                  <div class="col-md-12 form-group">
+                    <label class="text-black font-weight-bold" for="message">Parqueo</label>
+                    <select name="" id="adults" class="form-control">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                        <option value="">5</option>
+                        <option value="">6</option>
+                      </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input type="submit" value="Reservar" class="btn btn-primary text-white py-3 px-5 font-weight-bold" style="background-color: #F1582B; border-color: #F1582B;" (click)="reservarParqueo()">
+                  </div>
+                </div>
+              </form>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+      </section>
