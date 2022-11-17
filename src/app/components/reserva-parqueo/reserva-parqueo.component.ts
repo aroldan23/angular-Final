@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-reserva-parqueo',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservaParqueoComponent implements OnInit {
 
+  public usuario:Usuario = new Usuario("","");
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  reservarParqueo(){
+    console.log(this.usuario);
   }
 
 }

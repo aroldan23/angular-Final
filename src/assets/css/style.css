@@ -208,6 +208,14 @@ textarea.form-control {
   font-weight: bold;
 }
 
+.site-hero-inner .heading2 {
+  font-size: 50px;
+  font-family: 'Gotham',Helvetica,Arial,Lucida,sans-serif;
+  color: #fff;
+  line-height: 1;
+  font-weight: bold;
+}
+
 @media (max-width: 991.98px) {
   .site-hero-inner .heading {
     font-size: 40px;
@@ -228,13 +236,13 @@ textarea.form-control {
 }
 
 .page-inside .site-hero-inner, .page-inside {
-  height: 70vh;
-  min-height: 500px;
+  height: 20vh;
+  min-height: 200px;
 }
 
 .page-inside.overlay:before {
-  height: 70vh;
-  min-height: 500px;
+  height: 20vh;
+  min-height: 200px;
 }
 
 .menu-open .site-menu-toggle span {
