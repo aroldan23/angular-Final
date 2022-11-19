@@ -1,0 +1,78 @@
+<section class="site-hero overlay page-inside" style="background-image: url(assets/img/ULACIT.jpg)">
+    <div class="container">
+      <div class="row site-hero-inner justify-content-center align-items-center">
+        <div class="col-md-10 text-center">
+          <h1 class="heading2" data-aos="fade-up">Administracion de Reservas</h1>
+          <!-- <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">Enjoy your stay.</p> -->
+        </div>
+      </div>
+      <!-- <a href="#" class="scroll-down">Scroll Down</a> -->
+    </div>
+  </section>
+  <!-- END section -->
+
+  <body style="color: white; background-color: white;">
+  
+  <div class="container mt-5">
+      <div class="main row justify-content-center">
+          <form action="" id="contact-form" class="row justify-content-center mb-4" autocomplete="off">
+              <div class="col-10 mb-3">
+                  <label for="nombre" style="color: black;">Codigo de Reserva</label>
+                  <input class="form-control" type="text" name="cedula" id="cedula" [(ngModel)]="reserva.cedula">
+              </div>
+              <div class="col-10 mb-3">
+                  <label for="telefono" style="color: black;">Nombre</label>
+                  <input class="form-control" type="text" name="parqueoID" id="parqueoID" [(ngModel)]="reserva.parqueoID">
+              </div>
+              <div class="col-10 mb-3">
+                <label for="telefono" style="color: black;">Direccion</label>
+                <input class="form-control" type="text" name="espacioID" id="espacioID" [(ngModel)]="reserva.espacioID">
+            </div>
+            <div class="col-10 mb-3">
+                <label for="nombre" style="color: black;">Codigo de Reserva</label>
+                <input class="form-control" type="text" name="horaInicio" id="horaInicio" [(ngModel)]="reserva.horaInicio">
+            </div>
+            <div class="col-10 mb-3">
+                <label for="telefono" style="color: black;">Nombre</label>
+                <input class="form-control" type="text" name="horaFin" id="horaFin" [(ngModel)]="reserva.horaFin">
+            </div>
+            <div class="col-10 mb-3">
+              <label for="telefono" style="color: black;">Direccion</label>
+              <input class="form-control" type="text" name="estado" id="estado" [(ngModel)]="reserva.estado">
+          </div>
+              <div class="col-10">
+                  <button class="btn btn-success" style="background-color: #F1582B; border-color: #F1582B;" (click)="agregarReserva()">{{modo}}</button>
+              </div>
+              <div class="col-20 mt-5">
+
+                <table class="table table-striped" style="background-color: #31003F">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th class="text-center">Cedula</th>
+                            <th class="text-center">Parqueo</th>
+                            <th class="text-center">Espacio</th>
+                            <th class="text-center">Hora Inicio</th>
+                            <th class="text-center">Hora Fin</th>
+                            <th class="text-center">Estado</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let reserva of listaReservas; let indice = index">
+                            <td>{{reserva.cedula}}</td>
+                            <td>{{reserva.parqueoID}}</td>
+                            <td>{{reserva.espacioID}}</td>
+                            <td>{{reserva.horaInicio}}</td>
+                            <td>{{reserva.horaFin}}</td>
+                            <td>{{reserva.estado}}</td>
+                            <td class="text-center">
+                                <button class="btn btn-warning" (click)="actualizarReserva(indice, reserva)">Actualizar</button> &nbsp;
+                                <button class="btn btn-danger" (click)="borrarReserva(indice)">Borrar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>              
+              </div>
+          </form>
+      </div>
+  </div>

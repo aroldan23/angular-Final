@@ -13,6 +13,7 @@ import { AdminUsuariosComponent } from './components/admin-usuarios/admin-usuari
 import { AdminLandingComponent } from './components/admin-landing/admin-landing.component';
 import { AdminEspaciosComponent } from './components/admin-espacios/admin-espacios.component';
 import { AdminParqueosComponent } from './components/admin-parqueos/admin-parqueos.component';
+import { AdminReservasComponent } from './components/admin-reservas/admin-reservas.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'admin_landing', component: AdminLandingComponent },
   { path: 'admin_espacios', component: AdminEspaciosComponent },
   { path: 'admin_parqueos', component: AdminParqueosComponent },
+  { path: 'admin_reservas', component: AdminReservasComponent },
 
   // otherwise redirect to index
   { path: '**', redirectTo: 'index', pathMatch: 'full' }
@@ -39,7 +41,8 @@ const routes: Routes = [
     AdminUsuariosComponent,
     AdminLandingComponent,
     AdminEspaciosComponent,
-    AdminParqueosComponent
+    AdminParqueosComponent,
+    AdminReservasComponent
   ],
   imports: [
     BrowserModule,
