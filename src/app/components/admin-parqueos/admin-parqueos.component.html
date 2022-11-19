@@ -2,7 +2,7 @@
     <div class="container">
       <div class="row site-hero-inner justify-content-center align-items-center">
         <div class="col-md-10 text-center">
-          <h1 class="heading2" data-aos="fade-up">Registro de un nuevo espacio de parqueo</h1>
+          <h1 class="heading2" data-aos="fade-up">Administracion de parqueo</h1>
           <!-- <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">Enjoy your stay.</p> -->
         </div>
       </div>
@@ -14,57 +14,46 @@
   <body style="color: white; background-color: white;">
   
   <div class="container mt-5">
-      <div class="col-10 mt-5">
-          <h3 class="display-5 mb-5"><strong>Registro de un nuevo espacio de parqueo</strong></h3>
-      </div>
       <div class="main row justify-content-center">
           <form action="" id="contact-form" class="row justify-content-center mb-4" autocomplete="off">
               <div class="col-10 mb-3">
-                  <label for="nombre" style="color: black;">Número de espacio</label>
-                  <input class="form-control" id="nombre" type="text" placeholder="Ingrese el número de espacio:">
+                  <label for="nombre" style="color: black;">Codigo de Parqueo</label>
+                  <input class="form-control" type="text" name="codigo" id="codigo" [(ngModel)]="parqueo.codigo">
               </div>
               <div class="col-10 mb-3">
-                  <label for="telefono" style="color: black;">Parqueo en el que se encuentra</label>
-                  <input class="form-control" id="cedula" type="text" placeholder="Ingrese el parqueo en el que se encuentra el espacio:">
+                  <label for="telefono" style="color: black;">Nombre</label>
+                  <input class="form-control" type="text" name="nombre" id="nombre" [(ngModel)]="parqueo.nombre">
               </div>
+              <div class="col-10 mb-3">
+                <label for="telefono" style="color: black;">Direccion</label>
+                <input class="form-control" type="text" name="direccion" id="direccion" [(ngModel)]="parqueo.direccion">
+            </div>
               <div class="col-10">
-                  <input class="btn btn-success add-btn" type="submit" value="Guardar" style="background-color: #F1582B; border-color: #F1582B;">
-                  <!-- <input class="btn btn-success add-btn" type="submit" value="Eliminar"> -->
-                  <!-- <a href="blog.html" class="btn btn-success add-btn"  type="button" style="background-color: #F1582B; border-color: #F1582B;">Crear un nuevo espacio de parqueo</a>  -->
-                  <!-- <input class="btn btn-success add-btn" type="button" value="Crear un nuevo espacio de parqueo"> -->
+                  <button class="btn btn-success" style="background-color: #F1582B; border-color: #F1582B;" (click)="agregarParqueo()">{{modo}}</button>
               </div>
               <div class="col-20 mt-5">
-                  <div class="main row justify-content-center">
-                      <h3 class="display-5 mb-5"><strong>Parqueos registrados</strong></h3>
-                  </div>
-                  <table class="table table-striped table-dark" style="background-color: #31003F">
-                      <thead>
-                          <tr>
-                              <th>Número de espacio</th>
-                              <th>Parqueo en el que se encuentra</th>
-                              <th>Acciones</th>
-                          </tr>
-                      </thead>
-                      <tbody id="contact-list">
-                          <tr>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>
-                                  <a href="#" class="btn btn-warning btn-sm edit">Editar</a>
-                                  <a href="#" class="btn btn-danger btn-sm delete">Eliminar</a>
-                              </td>
-                          </tr>
-                          <tr>
-                              <td>1</td>
-                              <td>2</td>
-                              <td>
-                                  <a href="#" class="btn btn-warning btn-sm edit">Editar</a>
-                                  <a href="#" class="btn btn-danger btn-sm delete">Eliminar</a>
-                              </td>
-                          </tr>
-                          <tr>
-                      </tbody>
-                  </table>
+
+                <table class="table table-striped" style="background-color: #31003F">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th class="text-center">CODIGO</th>
+                            <th class="text-center">NOMBRE</th>
+                            <th class="text-center">DIRECCION</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let parqueo of listaParqueos; let indice = index">
+                            <td>{{parqueo.codigo}}</td>
+                            <td>{{parqueo.nombre}}</td>
+                            <td>{{parqueo.direccion}}</td>
+                            <td class="text-center">
+                                <button class="btn btn-warning" (click)="actualizarParqueo(indice, parqueo)">Actualizar</button> &nbsp;
+                                <button class="btn btn-danger" (click)="borrarParqueo(indice)">Borrar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>              
               </div>
           </form>
       </div>

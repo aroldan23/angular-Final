@@ -8,7 +8,7 @@ import { Usuario } from 'src/app/models/usuario';
 })
 export class ReservaParqueoComponent implements OnInit {
 
-  public usuario:Usuario = new Usuario("","");
+  public usuario:Usuario = new Usuario("","","","","","");
 
   constructor() { }
 
