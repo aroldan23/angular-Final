@@ -28,6 +28,10 @@
                 <label for="telefono" style="color: black;">Direccion</label>
                 <input class="form-control" type="text" name="direccion" id="direccion" [(ngModel)]="parqueo.direccion">
             </div>
+            <div class="col-10 mb-3">
+                <label for="telefono" style="color: black;">Cantidad de Espacios</label>
+                <input class="form-control" type="text" name="cantEspacios" id="cantEspacios">
+            </div>
               <div class="col-10">
                   <button class="btn btn-success" style="background-color: #F1582B; border-color: #F1582B;" (click)="agregarParqueo()">{{modo}}</button>
               </div>
@@ -36,9 +40,9 @@
                 <table class="table table-striped" style="background-color: #31003F">
                     <thead class="thead-dark">
                         <tr>
-                            <th class="text-center">CODIGO</th>
-                            <th class="text-center">NOMBRE</th>
-                            <th class="text-center">DIRECCION</th>
+                            <th class="text-center">Codigo</th>
+                            <th class="text-center">Nombre</th>
+                            <th class="text-center">Direccion</th>
                             <th></th>
                         </tr>
                     </thead>
