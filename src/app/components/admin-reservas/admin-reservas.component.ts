@@ -1,12 +1,14 @@
 import { Config } from 'src/app/models/config';
 import { Component, OnInit } from '@angular/core';
 import { Reserva } from 'src/app/models/reserva';
+import { adminReservaService } from 'src/app/services/admin-reservas';
 
 
 @Component({
   selector: 'app-admin-reservas',
   templateUrl: './admin-reservas.component.html',
-  styleUrls: ['./admin-reservas.component.css']
+  styleUrls: ['./admin-reservas.component.css'],
+  providers: [adminReservaService]
 })
 export class AdminReservasComponent implements OnInit {
   public titulo:string = "Componente Reserva"
@@ -15,18 +17,11 @@ export class AdminReservasComponent implements OnInit {
   public reservaSeleccionado:Reserva = new Reserva("","","","","",false);
   public modo:string = Config.insertar;
 
-  constructor() {
-    this.listaReservas = [
-      new Reserva("1111111","P1","P1-001", "22", "22", false),
-      new Reserva("1122222", "P1","P1-002", "22", "22", true),
-      new Reserva("13333111", "P1","P1-003", "22", "22", true)
-    ]
+  constructor(private _adminReservaService : adminReservaService) {
    }
 
   ngOnInit(): void {
-    this.listaReservas.forEach((valor, indice) => {
-      console.log(indice, valor)
-    });
+    this.listaReservas = this._adminReservaService.retornarReservas();
   }
 
   borrarReserva(codigo:any){

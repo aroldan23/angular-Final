@@ -1,11 +1,13 @@
 import { Config } from 'src/app/models/config';
 import { Component, OnInit } from '@angular/core';
 import { Parqueo } from 'src/app/models/parqueo';
+import { adminParqueoService } from 'src/app/services/admin-parqueo';
 
 @Component({
   selector: 'app-admin-parqueos',
   templateUrl: './admin-parqueos.component.html',
-  styleUrls: ['./admin-parqueos.component.css']
+  styleUrls: ['./admin-parqueos.component.css'],
+  providers: [adminParqueoService]
 })
 export class AdminParqueosComponent implements OnInit {
   public listaParqueos:Array<Parqueo> = Array<Parqueo>();
@@ -13,18 +15,12 @@ export class AdminParqueosComponent implements OnInit {
   public parqueoSeleccionado:Parqueo = new Parqueo("","","");
   public modo:string = Config.insertar;
 
-  constructor() {
-    this.listaParqueos = [
-      new Parqueo("160360","Diseño Web I", "Diseño We I Angular & Node"),
-      new Parqueo("160361","Desarrollo Software", "Desarrollo Software"),
-      new Parqueo("160362","Xamarin", "Xamarin")
-    ]
+  constructor(private _adminParqueoService : adminParqueoService) {
+
    }
 
   ngOnInit(): void {
-    this.listaParqueos.forEach((valor, indice) => {
-      console.log(indice, valor)
-    });
+    this.listaParqueos = this._adminParqueoService.retornarParqueos();
   }
 
   borrarParqueo(codigo:any){

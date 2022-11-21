@@ -1,13 +1,17 @@
 import { Espacio } from 'src/app/models/espacio';
-import { Config } from 'src/app/models/config';
 import { Component, OnInit } from '@angular/core';
+import { adminEspacioService } from 'src/app/services/admin-espacios';
+import { Config } from 'src/app/models/config';
 
 @Component({
   selector: 'app-admin-espacios',
   templateUrl: './admin-espacios.component.html',
-  styleUrls: ['./admin-espacios.component.css']
+  styleUrls: ['./admin-espacios.component.css'],
+  providers: [adminEspacioService]
 })
+
 export class AdminEspaciosComponent implements OnInit {
+
   public listaEspacios:Array<Espacio> = Array<Espacio>();
   public listaParqueos: string[] = ['P1', 'P2'];
   public listaTipos: string[] = ['Estudiante', 'Administrativo','Visita','Discapacitado'];
@@ -16,18 +20,11 @@ export class AdminEspaciosComponent implements OnInit {
   public espacioSeleccionado:Espacio = new Espacio("","","","");
   public modo:string = Config.insertar;
 
-  constructor() {
-    this.listaEspacios = [
-      new Espacio("P1","P1-001", "Administrativo", "Carro"),
-      new Espacio("P1","P1-002", "Visita", "Carro"),
-      new Espacio("P1","P1-003", "Visita", "Carro")
-    ]
+  constructor(private _adminEspacioService : adminEspacioService) {
    }
 
   ngOnInit(): void {
-    this.listaEspacios.forEach((valor, indice) => {
-      console.log(indice, valor)
-    });
+    this.listaEspacios = this._adminEspacioService.retornarEspacios();
   }
 
   borrarEspacio(codigo:any){
@@ -43,7 +40,6 @@ export class AdminEspaciosComponent implements OnInit {
         /**/
      } 
 
-    
     this.limpiar();
   }
 
@@ -57,5 +53,4 @@ export class AdminEspaciosComponent implements OnInit {
     this.espacio = new Espacio("","","","");
     this.modo = Config.insertar;
   }
-
 }
