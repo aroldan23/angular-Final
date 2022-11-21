@@ -1,11 +1,13 @@
 import { Usuario } from 'src/app/models/usuario';
 import { Config } from 'src/app/models/config';
 import { Component, OnInit } from '@angular/core';
+import { adminUsuarioService } from 'src/app/services/admin-usuarios';
 
 @Component({
   selector: 'app-admin-usuarios',
   templateUrl: './admin-usuarios.component.html',
-  styleUrls: ['./admin-usuarios.component.css']
+  styleUrls: ['./admin-usuarios.component.css'],
+  providers: [adminUsuarioService]
 })
 export class AdminUsuariosComponent implements OnInit {
   public listaUsuarios:Array<Usuario> = Array<Usuario>();
@@ -13,18 +15,11 @@ export class AdminUsuariosComponent implements OnInit {
   public usuarioSeleccionado:Usuario = new Usuario("","","","","","");
   public modo:string = Config.insertar;
 
-  constructor() {
-    this.listaUsuarios = [
-      new Usuario("1111111","Marco", "Martinez", "Alvarado", "Informatica", "123456"),
-      new Usuario("1111111","Marco1", "Martinez", "Alvarado", "Informatica", "123456"),
-      new Usuario("1111111","Marco2", "Martinez", "Alvarado", "Informatica", "123456")
-    ]
+  constructor(private _adminUsuarioService : adminUsuarioService) {
    }
 
   ngOnInit(): void {
-    this.listaUsuarios.forEach((valor, indice) => {
-      console.log(indice, valor)
-    });
+    this.listaUsuarios = this._adminUsuarioService.retornarUsuarios();
   }
 
   borrarUsuario(codigo:any){
